@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima Properti — Cari Rumah & Investasi Terbaik di Jakarta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased" x-data="{ 
+    filterType: 'all', 
+    searchQuery: '',
+    properties: [
+        { id: 1, title: 'Modern Minimalist House', type: 'house', location: 'Jakarta Selatan', price: 'Rp 2,4 M', beds: 4, baths: 3, area: '180 m²', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Luxury Apartment SCBD', type: 'apartment', location: 'Jakarta Pusat', price: 'Rp 1,8 M', beds: 2, baths: 2, area: '95 m²', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Commercial Shophouse (Ruko)', type: 'commercial', location: 'Jakarta Timur', price: 'Rp 3,5 M', beds: 0, baths: 2, area: '220 m²', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Townhouse Exclusive Kemang', type: 'house', location: 'Jakarta Selatan', price: 'Rp 4,2 M', beds: 5, baths: 4, area: '300 m²', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, title: 'Studio Apartment Menteng', type: 'apartment', location: 'Jakarta Pusat', price: 'Rp 850 Juta', beds: 1, baths: 1, area: '38 m²', img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, title: 'Ruko Strategis Klender', type: 'commercial', location: 'Jakarta Timur', price: 'Rp 2,1 M', beds: 0, baths: 3, area: '150 m²', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80' }
+    ],
+    get filteredProperties() {
+        return this.properties.filter(p => {
+            let matchType = this.filterType === 'all' || p.type === this.filterType;
+            let matchSearch = p.title.toLowerCase().includes(this.searchQuery.toLowerCase()) || p.location.toLowerCase().includes(this.searchQuery.toLowerCase());
+            return matchType && matchSearch;
+        });
+    }
+}">
+
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold text-slate-900 tracking-tight">PRIMA PROPERTI</span>
+                    <span class="block text-xs text-slate-500 font-medium">Jakarta & Sekitarnya</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#listing" class="hover:text-blue-600 transition">Listing Properti</a>
+                <a href="#fitur" class="hover:text-blue-600 transition">Keunggulan</a>
+                <a href="#tentang" class="hover:text-blue-600 transition">Tentang Kami</a>
+            </nav>
+            <div>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20konsultasi%20properti" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-sm transition flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Hubungi Agen</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="absolute inset-0 opacity-45 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+        
+        <div class="relative max-w-4xl mx-auto text-center space-y-6">
+            <span class="bg-blue-600/90 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Platform Listing & Agensi Terpercaya</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Temukan Rumah & Investasi Impian Anda</h1>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">Solusi properti lengkap di Jakarta dan sekitarnya. Transparan, aman, dan langsung terhubung dengan agen profesional.</p>
+            
+            <div class="bg-white p-3 rounded-2xl shadow-xl max-w-2xl mx-auto flex flex-col sm:flex-row gap-2 mt-8">
+                <div class="flex-1 flex items-center px-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 mr-2"></i>
+                    <input type="text" x-model="searchQuery" placeholder="Cari nama properti atau lokasi (contoh: Menteng)..." class="w-full bg-transparent py-3 text-sm text-slate-800 focus:outline-none">
+                </div>
+                <button @click="document.getElementById('listing').scrollIntoView({behavior: 'smooth'})" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-sm transition">
+                    Cari Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="listing" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">Pilihan Properti Terbaru</h2>
+                <p class="text-sm text-slate-500">Menampilkan unit siap huni dan investasi bernilai tinggi</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 bg-slate-200/70 p-1.5 rounded-xl text-sm font-medium">
+                <button @click="filterType = 'all'" :class="filterType === 'all' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'" class="px-4 py-2 rounded-lg transition">Semua</button>
+                <button @click="filterType = 'house'" :class="filterType === 'house' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'" class="px-4 py-2 rounded-lg transition">Rumah</button>
+                <button @click="filterType = 'apartment'" :class="filterType === 'apartment' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'" class="px-4 py-2 rounded-lg transition">Apartemen</button>
+                <button @click="filterType = 'commercial'" :class="filterType === 'commercial' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'" class="px-4 py-2 rounded-lg transition">Ruko / Komersial</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <template x-for="item in filteredProperties" :key="item.id">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200/80 transition flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img :src="item.img" :alt="item.title" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider" x-text="item.type"></span>
+                        <span class="absolute bottom-3 right-3 bg-blue-600 text-white font-bold text-sm px-3 py-1 rounded-lg shadow" x-text="item.price"></span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center text-xs text-slate-500 mb-1 space-x-1">
+                                <i class="fa-solid fa-location-dot text-blue-600"></i>
+                                <span x-text="item.location"></span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900" x-text="item.title"></h3>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-medium">
+                            <div class="flex items-center space-x-1" x-show="item.beds > 0">
+                                <i class="fa-solid fa-bed text-slate-400"></i>
+                                <span x-text="item.beds + ' Kamar'"></span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fa-solid fa-bath text-slate-400"></i>
+                                <span x-text="item.baths + ' Kamar Mandi'"></span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i class="fa-solid fa-ruler-combined text-slate-400"></i>
+                                <span x-text="item.area"></span>
+                            </div>
+                        </div>
+                        <a :href="'https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20properti%20' + encodeURIComponent(item.title)" target="_blank" class="w-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-800 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Tanya Detail Unit</span>
+                        </a>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <span class="text-white font-bold tracking-tight">PRIMA PROPERTI</span>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 Prima Properti. Contoh Portofolio Web Development Profesional.</p>
+        </div>
+    </footer>
+</body>
+</html>

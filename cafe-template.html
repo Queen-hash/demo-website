@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Senja Senopati — Specialty Coffee & Artisan Bakery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-stone-950 text-stone-200 font-sans antialiased" x-data="{
+    activeCategory: 'all',
+    menu: [
+        { id: 1, name: 'Kopi Susu Senja (Signature)', category: 'coffee', price: 'Rp 38.000', desc: 'Espresso house blend, fresh milk, and organic palm sugar', img: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, name: 'Manual Brew V60', category: 'coffee', price: 'Rp 42.000', desc: 'Choice of Gayo, Kerinci, or Flores single origin beans', img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, name: 'Matcha Latte Artisan', category: 'non-coffee', price: 'Rp 45.000', desc: 'Pure Uji matcha ceremonial grade with creamy steamed milk', img: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, name: 'Butter Croissant', category: 'bakery', price: 'Rp 28.000', desc: 'Flaky, buttery French pastry baked fresh every morning', img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, name: 'Truffle Mushroom Pasta', category: 'food', price: 'Rp 75.000', desc: 'Fettuccine with rich truffle cream sauce and wild mushrooms', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d628129e?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, name: 'Smoked Salmon Toast', category: 'food', price: 'Rp 65.000', desc: 'Sourdough bread, cream cheese, avocado, and smoked salmon', img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80' }
+    ],
+    get filteredMenu() {
+        if (this.activeCategory === 'all') return this.menu;
+        return this.menu.filter(item => item.category === this.activeCategory);
+    }
+}">
+
+    <header class="bg-stone-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-stone-950 font-bold text-xl">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-white tracking-widest uppercase">KOPI SENJA</span>
+                    <span class="block text-xs text-amber-500 font-medium tracking-wider">SENOPATI, JAKSEL</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-300">
+                <a href="#menu" class="hover:text-amber-500 transition">Menu Pilihan</a>
+                <a href="#story" class="hover:text-amber-500 transition">Cerita Kami</a>
+                <a href="#lokasi" class="hover:text-amber-500 transition">Lokasi & Jam Buka</a>
+            </nav>
+            <div>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20reservasi%20meja%20di%20Kopi%20Senja" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold px-5 py-2.5 rounded-full text-sm transition flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Reservasi Meja</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden">
+        <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent"></div>
+        
+        <div class="relative max-w-3xl mx-auto space-y-6 z-10">
+            <span class="text-amber-500 font-semibold text-sm tracking-widest uppercase border border-amber-500/30 px-4 py-1.5 rounded-full bg-amber-500/10">Ruang Nyaman di Jantung Kota</span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white font-serif">Kopi Berkualitas Untuk Jiwa yang Tenang</h1>
+            <p class="text-stone-300 text-base sm:text-lg max-w-xl mx-auto">Nikmati biji kopi pilihan nusantara disangrai sempurna, ditemani artisan bakery dan hidangan lezat.</p>
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold px-8 py-3.5 rounded-full text-sm transition shadow-lg shadow-amber-600/25">
+                    Lihat Menu Kami
+                </a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%20delivery" target="_blank" class="bg-stone-800 hover:bg-stone-700 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition border border-stone-700">
+                    Pesan Delivery WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h2 class="text-3xl font-bold text-white font-serif">Menu Favorit & Andalan</h2>
+            <p class="text-stone-400 text-sm">Diracik langsung oleh barista berpengalaman menggunakan bahan premium.</p>
+            
+            <div class="flex flex-wrap justify-center gap-2 pt-4">
+                <button @click="activeCategory = 'all'" :class="activeCategory === 'all' ? 'bg-amber-600 text-stone-950 font-bold' : 'bg-stone-900 text-stone-300 hover:bg-stone-800'" class="px-5 py-2 rounded-full text-xs transition">Semua Menu</button>
+                <button @click="activeCategory = 'coffee'" :class="activeCategory === 'coffee' ? 'bg-amber-600 text-stone-950 font-bold' : 'bg-stone-900 text-stone-300 hover:bg-stone-800'" class="px-5 py-2 rounded-full text-xs transition">Coffee</button>
+                <button @click="activeCategory = 'non-coffee'" :class="activeCategory === 'non-coffee' ? 'bg-amber-600 text-stone-950 font-bold' : 'bg-stone-900 text-stone-300 hover:bg-stone-800'" class="px-5 py-2 rounded-full text-xs transition">Non-Coffee</button>
+                <button @click="activeCategory = 'bakery'" :class="activeCategory === 'bakery' ? 'bg-amber-600 text-stone-950 font-bold' : 'bg-stone-900 text-stone-300 hover:bg-stone-800'" class="px-5 py-2 rounded-full text-xs transition">Bakery</button>
+                <button @click="activeCategory = 'food'" :class="activeCategory === 'food' ? 'bg-amber-600 text-stone-950 font-bold' : 'bg-stone-900 text-stone-300 hover:bg-stone-800'" class="px-5 py-2 rounded-full text-xs transition">Main Course</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <template x-for="item in filteredMenu" :key="item.id">
+                <div class="bg-stone-900 rounded-3xl overflow-hidden border border-stone-800 flex flex-col group hover:border-amber-600/50 transition">
+                    <div class="relative h-60 overflow-hidden">
+                        <img :src="item.img" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 right-3 bg-stone-950/80 backdrop-blur-md text-amber-500 font-bold text-sm px-3 py-1 rounded-full border border-stone-800" x-text="item.price"></span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1" x-text="item.name"></h3>
+                            <p class="text-stone-400 text-xs leading-relaxed" x-text="item.desc"></p>
+                        </div>
+                        <a :href="'https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20' + encodeURIComponent(item.name)" target="_blank" class="w-full bg-stone-800 hover:bg-amber-600 hover:text-stone-950 text-stone-200 text-center py-2.5 rounded-xl font-semibold text-xs transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Pesan Sekarang</span>
+                        </a>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <footer class="bg-stone-900 border-t border-stone-800 py-12 text-stone-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-amber-600 rounded-full flex items-center justify-center text-stone-950 font-bold text-sm">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <span class="text-white font-bold tracking-widest uppercase">KOPI SENJA SENOPATI</span>
+            </div>
+            <p class="text-xs text-stone-500">© 2026 Kopi Senja Senopati. Contoh Portofolio F&B Web Profesional.</p>
+        </div>
+    </footer>
+</body>
+</html>
